@@ -70,29 +70,8 @@ namespace Calk_6LR
                         stor3 = Convert.ToDouble(textBox3.Text);
                         colch++;
                     }
-                    textBox4.Visible = true;
-                    if ((stor1 + stor2 > stor3) && (stor1 + stor3 > stor2) && (stor2 + stor3 > stor1))
-                    {
-                        if ((stor1 == stor2) || (stor1 == stor3) || (stor2 == stor3))
-                        {
-                            if ((stor1 == stor2) && (stor1 == stor3) && (stor2 == stor3))
-                            {
-                                textBox4.Text = "Это равносторонний треугольник";
-                            }
-                            else
-                            {
-                                textBox4.Text = "Это равнобедренный треугольник";
-                            }
-                        }
-                        else
-                        {
-                            textBox4.Text = "Это неравносторонний треугольник";
-                        }
-                    }
-                    else
-                    {
-                        textBox4.Text = "Подобный треугольник не может существовать на плоскости";
-                    }
+                    textBox4.Visible = true; 
+                    textBox4.Text = typeOfTriangle(stor1, stor2, stor3);
                 }
             }
 
@@ -100,6 +79,32 @@ namespace Calk_6LR
 
         }
 
-
+        public string typeOfTriangle(double stor1, double stor2, double stor3)
+        {
+            string type;
+            if ((stor1 + stor2 > stor3) && (stor1 + stor3 > stor2) && (stor2 + stor3 > stor1))
+            {
+                if ((stor1 == stor2) || (stor1 == stor3) || (stor2 == stor3))
+                {
+                    if ((stor1 == stor2) && (stor1 == stor3) && (stor2 == stor3))
+                    {
+                        type = "Это равносторонний треугольник";
+                    }
+                    else
+                    {
+                        type = "Это равнобедренный треугольник";
+                    }
+                }
+                else
+                {
+                    type = "Это неравносторонний треугольник";
+                }
+            }
+            else
+            {
+                type = "Подобный треугольник не может существовать на плоскости";
+            }
+            return type;
+        }
     }
 }
